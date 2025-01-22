@@ -20,25 +20,25 @@ public class Calcolatrice extends JFrame implements ActionListener{
     }
 
     public void creaCalcolatrice(){
-        arrSimboli = new char[18];
-        arrSimboli[0] = '1';
-        arrSimboli[1] = '2';
-        arrSimboli[2] = '+';
-        arrSimboli[3] = '3';
-        arrSimboli[4] = '4';
-        arrSimboli[5] = '-';
-        arrSimboli[6] = '5';
-        arrSimboli[7] = '6';
-        arrSimboli[8] = '*';
-        arrSimboli[9] = '7';
-        arrSimboli[10] = '8';
-        arrSimboli[11] = '/';
-        arrSimboli[12] = '9';
-        arrSimboli[13] = '0';
-        arrSimboli[14] = '=';
-        arrSimboli[15] = ' ';
-        arrSimboli[16] = 'C';
-        arrSimboli[17] = 'e';
+        String[] arrSimboli = new String[18];
+        arrSimboli[0] = "1";
+        arrSimboli[1] = "2";
+        arrSimboli[2] = "+";
+        arrSimboli[3] = "3";
+        arrSimboli[4] = "4";
+        arrSimboli[5] = "-";
+        arrSimboli[6] = "5";
+        arrSimboli[7] = "6";
+        arrSimboli[8] = "*";
+        arrSimboli[9] = "7";
+        arrSimboli[10] = "8";
+        arrSimboli[11] = "/";
+        arrSimboli[12] = "9";
+        arrSimboli[13] = "0";
+        arrSimboli[14] = "=";
+        arrSimboli[15] = " ";
+        arrSimboli[16] = "C";
+        arrSimboli[17] = "end";
 
         JPanel pannelloTasti = new JPanel(); //pannello per i tasti della calcolatrice
         pannelloTasti.setBackground(Color.black);
@@ -59,7 +59,7 @@ public class Calcolatrice extends JFrame implements ActionListener{
         arrTasti = new JButton[18];
         for (int i = 0; i < 18; i++){ 
             for(int j = i; j <= i; j++){
-                arrTasti[i] = new JButton(String.valueOf(arrSimboli[j]));
+                arrTasti[i] = new JButton(arrSimboli[j]);
                 arrTasti[i].setFont(new Font("Arial", Font.BOLD, 25)); //Dimensione carattere
                 arrTasti[i].setForeground(Color.WHITE);      
 			    pannelloTasti.add(arrTasti[i]);
@@ -85,7 +85,7 @@ public class Calcolatrice extends JFrame implements ActionListener{
         JButton clickedButton = (JButton)e.getSource();
         String btnTxt = clickedButton.getText(); //testo del bottone schiacciato
 
-        if(btnTxt.equals("e")){
+        if(btnTxt.equals("end")){
             System.exit(0);
         }
 
@@ -110,18 +110,13 @@ public class Calcolatrice extends JFrame implements ActionListener{
     }
 
     public String calcolaRisultato(){
-        String input = String.join("", arrInput); //tolgo tutti gli spazi nell'array con gli input
+        MathEvaluator evaluator = new MathEvaluator();
 
         try {
-            double ris = calcolaVal(input);
-            return String.valueOf(ris); //restituisco il risultato come stringa
+            return String.valueOf(evaluator.eval(txtPrec)); //restituisco il risultato come stringa
         } catch (Exception e) {
             return "Errore";
         }
-    }
-
-    public double calcolaVal(String s) {
-        return 0;
     }
 }
 
