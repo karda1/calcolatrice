@@ -36,7 +36,7 @@ public class Calcolatrice extends JFrame implements ActionListener{
         arrSimboli[12] = "9";
         arrSimboli[13] = "0";
         arrSimboli[14] = "=";
-        arrSimboli[15] = " ";
+        arrSimboli[15] = "";
         arrSimboli[16] = "C";
         arrSimboli[17] = "end";
 
@@ -53,7 +53,7 @@ public class Calcolatrice extends JFrame implements ActionListener{
 
         labelRisultato = new JLabel(""); //label per il risultato
         labelRisultato.setFont(new Font("Arial", Font.BOLD, 25));
-        labelRisultato.setForeground(Color.white);
+        labelRisultato.setForeground(Color.blue);
         pannelloRis.add(labelRisultato);
 
         arrTasti = new JButton[18];
