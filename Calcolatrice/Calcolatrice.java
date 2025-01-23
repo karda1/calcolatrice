@@ -21,6 +21,8 @@ public class Calcolatrice extends JFrame implements ActionListener{
 
     public void creaCalcolatrice(){
         String[] arrSimboli = new String[18];
+
+        /*  
         arrSimboli[0] = "1";
         arrSimboli[1] = "2";
         arrSimboli[2] = "+";
@@ -39,6 +41,11 @@ public class Calcolatrice extends JFrame implements ActionListener{
         arrSimboli[15] = "";
         arrSimboli[16] = "C";
         arrSimboli[17] = "end";
+        */
+        for(int i = 0; i < 17; i++){
+            arrSimboli[i] = Integer.toString(i);
+        }
+        arrSimboli[17] = "End";
 
         JPanel pannelloTasti = new JPanel(); //pannello per i tasti della calcolatrice
         pannelloTasti.setBackground(Color.black);
